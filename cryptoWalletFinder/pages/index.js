@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 export default function Home() {
   return (
     <div className="container">
@@ -7,9 +8,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body>
-        <profile className="login"> 
-          <img src="/images/profile.png"></img> 
-        </profile>
+        <div className="login"> 
+        <Link href="create-profile">
+          <img src="/images/profile.png" alt="My Profile"></img> 
+          </Link>
+        </div>
         <main>
           <h1 className="title">
             Crypto Findrr
@@ -32,6 +35,7 @@ export default function Home() {
           top:0;
           right:0;
         }
+        
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
