@@ -10,7 +10,7 @@ export default function Home() {
       <body>
         <div className="login"> 
         <Link href="create-profile">
-          <img src="/images/profile.png" alt="My Profile"></img> 
+          <img className="profile" src="/images/profile.jpg" alt="My Profile"></img> 
           </Link>
         </div>
         <main>
@@ -35,7 +35,9 @@ export default function Home() {
           top:0;
           right:0;
         }
-        
+        .profile{
+          width:7rem;
+        }
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
