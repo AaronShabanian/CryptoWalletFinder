@@ -1,3 +1,4 @@
+import { Auth } from '@supabase/ui'
 import Head from 'next/head'
 import Link from 'next/link'
 export default function Home() {
