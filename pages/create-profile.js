@@ -28,6 +28,8 @@ export default function create() {
             </div>
           </div>
         ) : (
+          <div>
+          <addCoin> </addCoin>
           <button
           className="text-pink-300 font-semibold"
           onClick={async () => {
@@ -37,6 +39,7 @@ export default function create() {
         >
             Logout
           </button>
+          </div>
         )
     }
         </div>
