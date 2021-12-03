@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import { Auth } from '@supabase/ui'
 import { supabase } from '../utils/supabaseClient'
+import addCoin from '../components/addCoin'
+import React, { useEffect, useState } from "react";
+import ReactDOM from 'react-dom';
 export default function create() {
     const { user } = Auth.useUser()
     return (
@@ -29,7 +32,7 @@ export default function create() {
           </div>
         ) : (
           <div>
-          <addCoin> </addCoin>
+          <addCoin/>
           <button
           className="text-pink-300 font-semibold"
           onClick={async () => {
