@@ -23,6 +23,7 @@ export default function Home() {
           <p className="description">
           <form>
             <label for="fname">Username:</label>
+            <input classname="bg-gray" type="text"/>
           </form>
           </p>
 

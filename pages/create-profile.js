@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import { Auth } from '@supabase/ui'
 import { supabase } from '../utils/supabaseClient'
-import addCoin from '../components/addCoin'
+import AddCoin from '../components/AddCoin'
 import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
 export default function create() {
     const { user } = Auth.useUser()
     return (
         
-      <div className="bg-gray-700 min-h-screen min-w-screen">
+      <div className="bg-gray-900 min-h-screen min-w-screen">
           <div id="spacer" className="h-12"/>
               
         {/* 
@@ -32,9 +32,9 @@ export default function create() {
           </div>
         ) : (
           <div>
-          <addCoin/>
+          <AddCoin/>
           <button
-          className="text-pink-300 font-semibold"
+          className="text-pink-300 font-semibold bg-white p-2 rounded-lg right-2 bottom-2 fixed"
           onClick={async () => {
             const { error } = await supabase.auth.signOut()
             if (error) console.log('Error logging out:', error.message)
