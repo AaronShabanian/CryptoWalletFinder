@@ -6,6 +6,16 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
 export default function create() {
     const { user } = Auth.useUser()
+    const submitCoin = async (addy, type) =>{
+      const { data, error } = await supabase
+      .from('coins')
+      .insert([
+        { id: user.id, cointype: type, address: addy}
+        ])
+      console.log(addy);
+      console.log(type)
+      alert("Coin address added");
+    }
     return (
         
       <div className="bg-gray-900 min-h-screen min-w-screen">
@@ -32,7 +42,7 @@ export default function create() {
           </div>
         ) : (
           <div>
-          <AddCoin/>
+          <AddCoin handleSubmit={submitCoin}/>
           <button
           className="text-pink-300 font-semibold bg-white p-2 rounded-lg right-2 bottom-2 fixed"
           onClick={async () => {

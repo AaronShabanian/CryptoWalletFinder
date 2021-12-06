@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from "react";
-export default function AddCoin(){
+export default function AddCoin({handleSubmit}){
+  const[addy, setAddy] = useState("");
+  const[type, setType] = useState("");
+  let submitForm = e=> {
+    e.preventDefault()
+    handleSubmit(addy, type)
+    setAddy("")
+    setType("")
+  }
   return( 
     <div>
-    <form className="card">
+    <form className="card" onSubmit={submitForm}>
       <div className="p-2">
       <label>Chose type of Crypto:</label>
-        <select id="coins" name="coins">
+      <input type="text" list="coins" value={type} onChange={e =>setType(e.target.value)}/>
+        <datalist id="coins" name="coins">
           <option value="btc">Bitcoin</option>
           <option value="eth">Etherium</option>
           <option value="doge">Dogecoin</option>
           <option value="sol">Solana</option>
-        </select>
+
+        </datalist>
       </div>
       <label className="p-2"> Address: 
-        <input type= "text" />
+        <input type= "text" value={addy} onChange={e =>setAddy(e.target.value)}/>
       </label>
       <button type="submit" className="bg-pink-300 rounded px-12 py-2"> Save </button>
     </form>
