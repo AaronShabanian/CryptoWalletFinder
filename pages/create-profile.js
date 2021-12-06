@@ -4,8 +4,16 @@ import { supabase } from '../utils/supabaseClient'
 import AddCoin from '../components/AddCoin'
 import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
+import { data } from 'autoprefixer';
+import CoinStore from '../components/CoinStore';
 export default function create() {
     const { user } = Auth.useUser()
+    const [dataType, setDataType] = useState([])
+    const [coins, setCoins] =useState(
+      []
+    )
+    const[error, setError]=useState(null)
+    /* Adding coin address to database */
     const submitCoin = async (addy, type) =>{
       const { data, error } = await supabase
       .from('coins')
@@ -16,6 +24,17 @@ export default function create() {
       console.log(type)
       alert("Coin address added");
     }
+    const fetchCoins =async () => {
+      const {data, error} = await supabase
+      .from('coins')
+      .select('cointype, address')
+      console.log("Here" + data.slice(-1)[0].cointype)
+      setDataType(data)
+    }
+    useEffect(()=> {
+      fetchCoins()
+  
+    }, [])
     return (
         
       <div className="bg-gray-900 min-h-screen min-w-screen">
@@ -42,6 +61,7 @@ export default function create() {
           </div>
         ) : (
           <div>
+          <CoinStore store = {dataType}/>
           <AddCoin handleSubmit={submitCoin}/>
           <button
           className="text-pink-300 font-semibold bg-white p-2 rounded-lg right-2 bottom-2 fixed"
