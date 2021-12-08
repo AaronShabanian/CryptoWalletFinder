@@ -20,7 +20,6 @@ export default function create() {
             .from('profiles')
             .select('display_name')
             .eq('id', user.id); 
-      console.log(data.slice(-(1))[0].display_name);
       setDisplayName(data.slice(-(1))[0].display_name); 
     }
     /* Adding coin address to database */
@@ -33,6 +32,12 @@ export default function create() {
       console.log(addy);
       console.log(type)
       alert("Coin address added");
+    }
+    const submitDisplayName = async (username) =>{
+      const { data, error } = await supabase
+      .from('profiles')
+      .update({ display_name: username })
+      .match({id: user.id});
     }
     const fetchCoins =async () => {
       const {data, error} = await supabase
@@ -73,8 +78,13 @@ export default function create() {
         ) : ( 
 
           <div>
-                      
-            {displayName=null &&(<Name />)}
+            {console.log("Display Name:" +displayName)}
+            {displayName==null &&(
+            <div>
+            {console.log("Here")}
+            <Name handleSubmit={submitDisplayName}/>
+            </div>
+            )}
             
           <div>
           <CoinStore store = {dataType}/>
