@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
 import { data } from 'autoprefixer';
 import CoinStore from '../components/CoinStore';
-import Name from '../components/name';
+import Name from '../components/Name';
 export default function create() {
     const { user } = Auth.useUser()
     const [dataType, setDataType] = useState([])
