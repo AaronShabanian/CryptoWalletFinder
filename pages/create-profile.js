@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import { data } from 'autoprefixer';
 import CoinStore from '../components/CoinStore';
 import Name from '../components/Name';
+import Link from 'next/link';
 export default function create() {
     const { user } = Auth.useUser()
     const [dataType, setDataType] = useState([])
@@ -38,6 +39,7 @@ export default function create() {
       .from('profiles')
       .update({ display_name: username })
       .match({id: user.id});
+      window.location.assign("/")
     }
     const fetchCoins =async () => {
       const {data, error} = await supabase
@@ -50,7 +52,7 @@ export default function create() {
       fetchCoins();
       getName();
       <CoinStore store = {dataType}/>;
-    }, [])
+    }, [data])
     return (
         
       <div className="bg-gray-900 min-h-screen min-w-screen">
