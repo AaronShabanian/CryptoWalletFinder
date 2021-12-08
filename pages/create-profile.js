@@ -27,13 +27,13 @@ export default function create() {
     const fetchCoins =async () => {
       const {data, error} = await supabase
       .from('coins')
-      .select('cointype, address')
-      console.log("Here" + data.slice(-1)[0].cointype)
-      setDataType(data)
+      .select('cointype, address');
+      console.log("Here" + data.slice(-1)[0].cointype);
+      setDataType(data);
     }
     useEffect(()=> {
-      fetchCoins()
-  
+      fetchCoins();
+      <CoinStore store = {dataType}/>;
     }, [])
     return (
         
