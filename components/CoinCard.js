@@ -14,7 +14,8 @@ export default function CoinCard({type, address}) {
             background-color: white; 
             padding: 1.5rem;
             border-radius:25px;
-            max-width:25%; 
+            width:25%;
+            min-width: 25%;
             margin-bottom:1rem;
 
         }

@@ -6,13 +6,23 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from 'react-dom';
 import { data } from 'autoprefixer';
 import CoinStore from '../components/CoinStore';
+import Name from '../components/name';
 export default function create() {
     const { user } = Auth.useUser()
     const [dataType, setDataType] = useState([])
     const [coins, setCoins] =useState(
       []
     )
+    const [displayName, setDisplayName]= useState([])
     const[error, setError]=useState(null)
+    const getName = async() =>{
+      const {data, error} = await supabase
+            .from('profiles')
+            .select('display_name')
+            .eq('id', user.id); 
+      console.log(data.slice(-(1))[0].display_name);
+      setDisplayName(data.slice(-(1))[0].display_name); 
+    }
     /* Adding coin address to database */
     const submitCoin = async (addy, type) =>{
       const { data, error } = await supabase
@@ -27,12 +37,13 @@ export default function create() {
     const fetchCoins =async () => {
       const {data, error} = await supabase
       .from('coins')
-      .select('cointype, address');
-      console.log("Here" + data.slice(-1)[0].cointype);
+      .select('cointype, address')
+      .eq('id', user.id);
       setDataType(data);
     }
     useEffect(()=> {
       fetchCoins();
+      getName();
       <CoinStore store = {dataType}/>;
     }, [])
     return (
@@ -59,7 +70,12 @@ export default function create() {
             />
             </div>
           </div>
-        ) : (
+        ) : ( 
+
+          <div>
+                      
+            {displayName=null &&(<Name />)}
+            
           <div>
           <CoinStore store = {dataType}/>
           <AddCoin handleSubmit={submitCoin}/>
@@ -73,9 +89,9 @@ export default function create() {
             Logout
           </button>
           </div>
+          </div>
         )
     }
         </div>
     )
     }
-    
