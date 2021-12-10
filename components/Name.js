@@ -10,7 +10,7 @@ export default function Name({handleSubmit}){
     return(
         <div className="bg-white min-h-screen min-w-screen">
         <form className="card" onSubmit={submitForm}>
-            <label className="p-2"> <h1 className="text-black text-6xl font-black py-10"> Enter Display Name: </h1>
+            <label className="p-2"> <h1 className="text-black text-6xl font-black py-10"> Enter Your First and Last Name: </h1>
                 <input className= "border py-2 px-3 text-grey-darkest" type= "text" value={username} onChange={e =>setUsername(e.target.value)}/>
             </label>
             <br/>
