@@ -15,10 +15,12 @@ export default function AddCoin({handleSubmit}){
       <label>Chose type of Crypto:</label>
       <input type="text" list="coins" value={type} onChange={e =>setType(e.target.value)}/>
         <datalist id="coins" name="coins">
-          <option value="btc">Bitcoin</option>
-          <option value="eth">Etherium</option>
-          <option value="doge">Dogecoin</option>
-          <option value="sol">Solana</option>
+          <option value="BTC">Bitcoin</option>
+          <option value="ETH">Etherium</option>
+          <option value="DOGE">Dogecoin</option>
+          <option value="BNB">Binance Coin</option>
+          <option value="SOL">Solana</option>
+          <option value="XRP">XRP</option>
 
         </datalist>
       </div>

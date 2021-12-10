@@ -49,10 +49,13 @@ export default function create() {
       setDataType(data);
     }
     useEffect(()=> {
-      fetchCoins();
-      getName();
+      if (user!=null)(
+      fetchCoins())
+      if(user!=null)(
+      getName());
+      
       <CoinStore store = {dataType}/>;
-    }, [data])
+    }, [dataType], [user])
     return (
         
       <div className="bg-gray-900 min-h-screen min-w-screen">

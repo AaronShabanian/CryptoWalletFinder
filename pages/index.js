@@ -36,36 +36,48 @@ export default function Home() {
           </Link>
         </div>
         <main>
+          <div className="info">
           <h1 className="title">
             Crypto Findrr
           </h1>
 
           <p className="description">
           <form onSubmit={submitForm}>
-            <label for="fname">Username:</label>
-            <input classname="bg-gray" type="text" onChange={e =>setQuery(e.target.value)}/>
-            <button type="submit" className="searching"> Search </button>
+            <input classname="querySearch" type="text" placeholder="Enter Name" onChange={e =>setQuery(e.target.value)} />
+            <button type="submit" className="searching"><p className="arrow">→</p></button>
           </form>
           </p>
           <CoinStore store = {dataType}/>
+          </div>
         </main>
 
       </body>
       <style jsx>{`
         
         * {background-color: #121212}
-        .searching{
-          background-color:	#7FFF00;
-          padding:1rem;
-          border-radius:100px;
+       
+        .arrow{
+          background-color: #7FFF00;
+          font-size: 3em;
         }
         .login{
           position:absolute;
           top:0;
           right:0;
         }
+        .searching{
+          background-color:	#7FFF00;
+          padding-top:5px;
+          padding-bottom:30px;
+          line-height: 1em;
+     
+        }
         .profile{
           width:7rem;
+        }
+        input[type=text]{
+          border: 2px solid white;
+          border-radius: 4px;
         }
         .container {
           min-height: 100vh;
@@ -74,6 +86,18 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+        .info {
+          width: 500px;
+          height: 100px;
+    
+          position: absolute;
+          top:0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+    
+    margin: auto;
         }
         h1{
           color:white;
