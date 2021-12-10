@@ -1,8 +1,28 @@
 import { Auth } from '@supabase/ui'
 import Head from 'next/head'
 import Link from 'next/link'
+import { supabase } from '../utils/supabaseClient';
+import CoinStore from '../components/CoinStore';
 import React, { useEffect, useState } from "react";
 export default function Home() {
+  const [dataType, setDataType] = useState([])
+  const [query, setQuery] = useState([])
+  const { user } = Auth.useUser()
+
+  let submitForm = e=> {
+    e.preventDefault()
+    retreiveCards(query)
+    //handleSubmit(addy, type)
+    //setAddy("")
+    //setType("")
+  }
+  const retreiveCards = async (username) =>{
+    const { data, error } = await supabase
+    .from('coins')
+    .select('cointype, address')
+    .eq('user', username);
+    setDataType(data);
+  }
   return (
     <div className="container">
       <Head>
@@ -21,18 +41,24 @@ export default function Home() {
           </h1>
 
           <p className="description">
-          <form>
+          <form onSubmit={submitForm}>
             <label for="fname">Username:</label>
-            <input classname="bg-gray" type="text"/>
+            <input classname="bg-gray" type="text" onChange={e =>setQuery(e.target.value)}/>
+            <button type="submit" className="searching"> Search </button>
           </form>
           </p>
-
+          <CoinStore store = {dataType}/>
         </main>
 
       </body>
       <style jsx>{`
         
         * {background-color: #121212}
+        .searching{
+          background-color:	#7FFF00;
+          padding:1rem;
+          border-radius:100px;
+        }
         .login{
           position:absolute;
           top:0;

@@ -28,10 +28,10 @@ export default function create() {
       const { data, error } = await supabase
       .from('coins')
       .insert([
-        { id: user.id, cointype: type, address: addy}
+        { id: user.id, cointype: type, address: addy, user:displayName}
         ])
       console.log(addy);
-      console.log(type)
+      console.log(type);
       alert("Coin address added");
     }
     const submitDisplayName = async (username) =>{
@@ -81,12 +81,12 @@ export default function create() {
 
           <div>
             {console.log("Display Name:" +displayName)}
-            {displayName==null &&(
+            {displayName==null ?(
             <div>
             {console.log("Here")}
             <Name handleSubmit={submitDisplayName}/>
             </div>
-            )}
+            ) : (
             
           <div>
           <CoinStore store = {dataType}/>
@@ -101,6 +101,7 @@ export default function create() {
             Logout
           </button>
           </div>
+            )}
           </div>
         )
     }
