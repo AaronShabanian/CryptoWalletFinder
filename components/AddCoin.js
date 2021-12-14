@@ -23,25 +23,30 @@ export default function AddCoin({handleSubmit}){
           <option value="XRP">XRP</option>
 
         </datalist>
+
       </div>
+      <div>
       <label className="p-2"> Address: 
         <input type= "text" value={addy} onChange={e =>setAddy(e.target.value)}/>
       </label>
       <button type="submit" className="bg-pink-300 rounded px-12 py-2 hover:bg-yellow"> Save </button>
+      </div>
     </form>
     
      <style jsx>{`
      .card{
        display: flex;
-       flex-directiion: row;
+       flex-directiion: column;
        justify-content: space-around; 
        background-color: white; 
        padding: 1.5rem; 
        max-width:100%;
        border-radius:100px; 
-       position:absolute; 
-       bottom:0px; 
-       left:30%; 
+       position:static; 
+       right:0px;
+       left:0px; 
+       bottom:1rem;
+       text-align:center;
        
      }
      `}
