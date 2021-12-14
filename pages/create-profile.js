@@ -54,7 +54,7 @@ export default function create() {
       if(user!=null)(
       getName());
       
-      <CoinStore store = {dataType}/>;
+      <CoinStore store = {dataType} authorized="True"/>;
     }, [dataType], [user])
     return (
         

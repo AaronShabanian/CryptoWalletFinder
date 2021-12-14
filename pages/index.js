@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { supabase } from '../utils/supabaseClient';
 import CoinStore from '../components/CoinStore';
 import React, { useEffect, useState } from "react";
+import BitcoinPrice from '../components/BitcoinPrice';
 export default function Home() {
   const [dataType, setDataType] = useState([])
   const [query, setQuery] = useState([])
@@ -40,7 +41,9 @@ export default function Home() {
           <h1 className="title">
             Crypto Findrr
           </h1>
-
+          <br />
+          <BitcoinPrice />
+          <br />
           <p className="description">
           <form onSubmit={submitForm}>
             <input classname="querySearch" type="text" placeholder="Enter Name" onChange={e =>setQuery(e.target.value)} />
@@ -93,7 +96,7 @@ export default function Home() {
     
           position: absolute;
           top:0;
-          bottom: 0;
+          bottom: 60%;
           left: 0;
           right: 0;
     
