@@ -83,19 +83,24 @@ export default function create() {
         ) : ( 
 
           <div>
-            {console.log("Display Name:" +displayName)}
             {displayName==null ?(
             <div>
-            {console.log("Here")}
             <Name handleSubmit={submitDisplayName}/>
             </div>
             ) : (
             
           <div>
-          <CoinStore store = {dataType}/>
+            <button className="bg-white px-5 py-3 rounded-md font-bold absolute top-0 left-0">
+          <Link href="/">
+          Back To Home
+          </Link>
+          </button>
+          <br/>
+          <br/>
+          <CoinStore store = {dataType} authorized="True"/>
           <AddCoin handleSubmit={submitCoin}/>
           <button
-          className="text-pink-300 font-semibold bg-white p-2 rounded-lg right-2 bottom-2 fixed"
+          className="text-pink-300 font-semibold bg-white p-2 rounded-lg right-2 bottom-2 fixed hover:bg-yellow"
           onClick={async () => {
             const { error } = await supabase.auth.signOut()
             if (error) console.log('Error logging out:', error.message)

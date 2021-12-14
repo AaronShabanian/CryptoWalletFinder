@@ -27,7 +27,7 @@ export default function AddCoin({handleSubmit}){
       <label className="p-2"> Address: 
         <input type= "text" value={addy} onChange={e =>setAddy(e.target.value)}/>
       </label>
-      <button type="submit" className="bg-pink-300 rounded px-12 py-2"> Save </button>
+      <button type="submit" className="bg-pink-300 rounded px-12 py-2 hover:bg-yellow"> Save </button>
     </form>
     
      <style jsx>{`
@@ -37,11 +37,12 @@ export default function AddCoin({handleSubmit}){
        justify-content: space-around; 
        background-color: white; 
        padding: 1.5rem; 
-       max-width:50%;
+       max-width:100%;
        border-radius:100px; 
-       position:fixed; 
+       position:absolute; 
        bottom:0px; 
        left:30%; 
+       
      }
      `}
      </style>

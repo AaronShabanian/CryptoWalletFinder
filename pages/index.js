@@ -50,7 +50,7 @@ export default function Home() {
             <button type="submit" className="searching"><p className="arrow">→</p></button>
           </form>
           </p>
-          <CoinStore store = {dataType}/>
+          <CoinStore store = {dataType} authorized="False"/>
           </div>
         </main>
 
