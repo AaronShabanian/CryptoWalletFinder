@@ -97,7 +97,9 @@ export default function create() {
           </button>
           <br/>
           <br/>
+          <div className='hope'>
           <CoinStore store = {dataType} authorized="True"/>
+          </div>
           <AddCoin handleSubmit={submitCoin}/>
           <button
           className="text-pink-300 font-semibold bg-white p-2 rounded-lg right-2 top-2 fixed hover:bg-yellow"
@@ -113,6 +115,20 @@ export default function create() {
           </div>
         )
     }
+      <style jsx>{`
+     .hope{
+       display: flex;
+       flex-directiion: column;
+       justify-content: space-around; 
+       padding: 1.5rem; 
+       max-width:100%;
+       border-radius:100px; 
+       align-items: center;
+       text-align:center;
+       
+     }
+     `}
+     </style>
         </div>
     )
     }
