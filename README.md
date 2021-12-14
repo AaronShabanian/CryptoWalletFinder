@@ -1,6 +1,6 @@
 # Crypto Findrr
 ## Link 
-<a href="cryptofindrr.netlify.app">cryptofindrr.netlify.app</a>
+<a href="https://cryptofindrr.netlify.app/">https://cryptofindrr.netlify.app/</a>
 ## Info
 Name: Aaron Shabanian
 ID: 2314391
