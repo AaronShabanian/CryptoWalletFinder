@@ -1,1 +1,8 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Crypto Findrr
+## Info
+Name: Aaron Shabanian
+ID: 2314391
+## References
+Gratitude Journal <br>
+Online forums like stack overflow <br>
+https://w3collective.com/react-component-bitcoin-price/ used for reference in Bitcoin Price Component
