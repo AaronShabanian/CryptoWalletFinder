@@ -50,15 +50,33 @@ export default function Home() {
             <button type="submit" className="searching"><p className="arrow">→</p></button>
           </form>
           </p>
+          <div className="cards">
           <CoinStore store = {dataType} authorized="False"/>
+          </div>
           </div>
         </main>
 
       </body>
       <style jsx>{`
         
-        * {background-color: #121212}
-       
+        * {background-color:#121212;}
+        .container{
+          background-color: #121212;
+          min-width:100vw;
+          
+        
+        }
+        body{
+          background-color: #121212;
+          min-height:100%;
+        }
+        .cards{
+          background-color: #121212;
+          min-width:-50vw;
+        }
+       .querySearch{
+         background-color: #121212;
+       }
         .arrow{
           background-color: #7FFF00;
           font-size: 3em;

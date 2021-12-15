@@ -57,7 +57,7 @@ export default function create() {
       <CoinStore store = {dataType} authorized="True"/>;
     }, [dataType], [user])
     return (
-        
+      <body class="h-screen bg-gray-900">
       <div className="bg-gray-900 min-h-screen min-w-screen">
           <div id="spacer" className="h-12"/>
               
@@ -78,6 +78,7 @@ export default function create() {
               socialLayout="horizontal"
               socialButtonSize="xlarge"
             />
+   
             </div>
           </div>
         ) : ( 
@@ -127,8 +128,10 @@ export default function create() {
        text-align:center;
        
      }
+     
      `}
      </style>
         </div>
+        </body>
     )
     }
